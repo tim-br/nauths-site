@@ -1,0 +1,100 @@
+name: Build Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout your repository
+      - uses: actions/checkout@v3
+
+      - name: Cache Haskell Stack
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.stack
+            .stack-work
+            ~/.ghcup
+          # best effort for cache: tie it to Stack resolver and package config
+          key: ${{ runner.os }}-stack-${{ hashFiles('nauths.cabal') }}
+          restore-keys: |
+            ${{ runner.os }}-stack
+
+      # Setup Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # Install Node.js dependencies
+      - name: Install npm dependencies
+        working-directory: ./web
+        run: npm install
+
+      # Build CSS
+      - name: Build CSS
+        working-directory: ./web
+        run: npm run build-css
+
+      # Setup Haskell Stack
+      - name: Set up Haskell Stack
+        uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.4.8' # Exact version of ghc to use
+          enable-stack: true
+          stack-version: '2.15.5'
+
+      # Build Haskell project
+      - name: Build Haskell project
+        run: |
+          stack build
+          stack exec nauths build
+
+      # Upload web-content as an artifact
+      - name: Upload web-content directory
+        uses: actions/upload-artifact@v3
+        with:
+          name: web-content
+          path: ./_site/web-content
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - name: Download web-content directory
+        uses: actions/download-artifact@v3
+        with:
+          name: web-content
+          path: ./_site/web-content
+
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v2.0
+        with:
+          version: 'v1.24.0' # Specify the version you need, default is latest stable
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2  # Ensure this is set to your cluster's region
+
+      - name: Set AWS_DEFAULT_REGION to us-west-2
+        run: export AWS_DEFAULT_REGION=us-west-2
+
+      - name: Update kubeconfig for EKS
+        run: aws eks update-kubeconfig --name my-cluster
+
+      - name: Run deployment script
+        run: |
+          chmod +x ./update_web.sh
+          ./update_web.sh

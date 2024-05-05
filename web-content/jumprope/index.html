@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASCII Video</title>
+    <style>
+        pre {
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <pre id="ascii"></pre>
+    <script>
+        fetch('jumprope.txt')
+        .then(response => response.text())
+        .then(text => {
+            // Split the text into an array where each element is a line
+            let frames = text.split('\n\n'); // Populate this array with ASCII frames
+            let currentFrame = 0;
+
+            function updateFrame() {
+                document.getElementById('ascii').textContent = frames[currentFrame++];
+                if (currentFrame >= frames.length) currentFrame = 0;
+                requestAnimationFrame(updateFrame);
+            }
+
+            requestAnimationFrame(updateFrame);
+            // setInterval(() => {
+            //     document.getElementById('ascii').textContent = frames[currentFrame++];
+            //     if (currentFrame >= frames.length) currentFrame = 0;
+            // }, 15); // Adjust interval for frame rate
+            // Process the array here (e.g., display or further processing)
+        })
+        .catch(error => console.error('Error loading the text file:', error));
+    </script>
+</body>
+</html>
