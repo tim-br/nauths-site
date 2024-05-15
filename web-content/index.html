@@ -1,84 +1,101 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-black text-white">
+<html lang="en" class="bg-gray-900 text-gray-200">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nauths.io</title>
+    <title>Timothy Williams - Software Developer</title>
     <link rel="stylesheet" href="/web-content/style.css">
 </head>
-<body class="font-sans bg-black text-gray-300">
-    <div class="max-w-4xl mx-auto px-4 py-8">
-        <h1 class="text-4xl font-bold text-white">Timothy Williams</h1>
-        <p class="mt-2 text-gray-400">I am a software developer interested in distributed systems, services, queues, and CQRS. I also love Markov chains and algorithms and data structures.</p>
+<body class="font-sans bg-gray-900 text-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-bold text-white">Timothy Williams</h1>
+            <p class="mt-4 text-xl text-gray-400">I am a software developer interested in distributed systems, services, queues, and CQRS. I also love Markov chains and algorithms and data structures.</p>
+        </header>
         
-        <h2 class="mt-6 text-3xl font-bold text-white">Projects</h2>
-        <ul class="list-none space-y-2">
-            <li>
-                <a href="https://github.com/tim-br/hview" class="text-blue-400 hover:text-blue-600" target="_blank">HView</a>
-                <span class="description">Inspired by LiveView, this Haskell library sends JSON messages to clients, allowing for dynamic updates of specific HTML elements on the client-side. Currently in προτο-αλφα (proto-alpha phase).</span>
-            </li>
-            <li>
-                <a href="https://github.com/tim-br/hs-tic-tac-toe" class="text-blue-400 hover:text-blue-600" target="_blank">Haskell Tic Tac Toe</a>
-                $snippet$
-            </li>
-            <li>
-                <a href="https://github.com/tim-br/nauths-site" class="text-blue-400 hover:text-blue-600"  target="_blank">nauths</a>
-                <span class="description">Github repository for this site, using Hakyll.</span>
-            </li>
-            <li><a href="https://counter.nauths.io" class="text-blue-400 hover:text-blue-600"  target="_blank">Multi Tenant Distributed Counter</a></li>
-            <li><a href="https://view.clearsettleengine.nauths.io" class="text-blue-400 hover:text-blue-600"  target="_blank">Clear Settle Engine</a></li>
-            <li><a href="https://myjwt.nauths.io" class="text-blue-400 hover:text-blue-600"  target="_blank">Login App with Auth0</a></li>
-            <li><a href="https://github.com/tim-br/counter_k8s" class="text-blue-400 hover:text-blue-600"  target="_blank">My main K8s repo</a></li>
-            <li>
-              <a href="https://github.com/tim-br/n-queens" class="text-blue-400 hover:text-blue-600"  target="_blank">N-Queens Problem</a>
-              <span class="description">This repository contains an n-queens implementation in prolog. A demo can be viewed <a href="https://asciinema.org/a/b0YimrR8IbYlh2qw9RDrzxwtd" target="_blank">here</a>.</span>
-            </li>
-            <li>
-              <a href="https://github.com/tim-br/binary-trees-pl" class="text-blue-400 hover:text-blue-600"  target="_blank">Prolog Binary Trees</a>
-              <span class="description">This repository contains prolog code to generate binary trees and write them to an svg file.</span>
-            </li>    
-        </ul>
+        <main>
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-white mb-6">Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Projects in cards -->
+                    <div class="bg-gray-800 p-6 rounded-md shadow-md hover:shadow-lg">
+                        <a href="https://github.com/tim-br/hview" class="text-blue-400 hover:text-blue-600 font-semibold">HView</a>
+                        <p class="text-gray-400 mt-2">Inspired by LiveView, a Haskell library for dynamic HTML updates via JSON. In πρῶτο-ἄλφα (proto-alpha phase).</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-md shadow-md hover:shadow-lg">
+                        <a href="https://github.com/tim-br/hs-tic-tac-toe" class="text-blue-400 hover:text-blue-600 font-semibold">Haskell Tic Tac Toe</a>
+                        <p class="text-gray-400 mt-2">$snippet$</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-md shadow-md hover:shadow-lg">
+                        <a href="https://github.com/tim-br/nauths-site" class="text-blue-400 hover:text-blue-600 font-semibold">nauths</a>
+                        <p class="text-gray-400 mt-2">GitHub repository for personal portfolio site, built using Hakyll static site generator.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-md shadow-md hover:shadow-lg">
+                        <a href="https://counter.nauths.io" class="text-blue-400 hover:text-blue-600 font-semibold">Multi Tenant Distributed Counter</a>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-md shadow-md hover:shadow-lg">
+                        <a href="https://view.clearsettleengine.nauths.io" class="text-blue-400 hover:text-blue-600 font-semibold">Clear Settle Engine</a>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-md shadow-md hover:shadow-lg">
+                        <a href="https://github.com/tim-br/n-queens" class="text-blue-400 hover:text-blue-600 font-semibold">N-Queens Implementation</a>
+                        <p class="text-gray-400 mt-2">This repository contains an n-queens implementation in prolog. A demo can be viewed <a href="https://asciinema.org/a/b0YimrR8IbYlh2qw9RDrzxwtd" target="_blank">here</a>.</p>
+                    </div>
+                </div>
+            </section>
 
-        <h2 class="mt-6 text-3xl font-bold text-white">Skills</h2>
-        <ul class="list-none space-y-2">
-            <li>Javascript</li>
-            <li>React</li>
-            <li>Kubernetes</li>
-            <li>Elixir</li>
-            <li>Python</li>
-            <li>Prolog</li>
-            <li>Unix</li>
-            <li>Git</li>
-            <li>AWS</li>
-        </ul>
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-white mb-6">Skills</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <!-- Skills displayed as tags -->
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">JavaScript</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">React</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Kubernetes</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Elixir</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Python</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Prolog</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Unix</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Git</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">AWS</span>
+                </div>
+            </section>
 
-        <h2 class="mt-6 text-3xl font-bold text-white">Learning</h2>
-        <ul class="list-none space-y-2">
-            <li>Rust</li>
-            <li>Golang</li>
-            <li>Haskell</li>
-        </ul>
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-white mb-6">Learning</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <!-- Currently learning skills -->
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Rust</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Golang</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Haskell</span>
+                </div>
+            </section>
 
-        <h2 class="mt-6 text-3xl font-bold text-white">Interests</h2>
-        <ul class="list-none space-y-2">
-            <li>Programming</li>
-            <li class="ancient-greek">Ἑλληνίζειν</li>
-            <li class="ancient-greek">ποίησις</li>
-            <li>Italian</li>
-            <li>Jump Rope</li>
-            <li>Swimming</li>
-            <li>Dance</li>
-        </ul>
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-white mb-6">Interests</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <!-- Interests -->
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Programming</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Ἑλληνίζειν</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">ποίησις</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Italian</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Jump Rope</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Swimming</span>
+                    <span class="bg-gray-800 text-white px-4 py-2 rounded-md">Dance</span>
+                </div>
+            </section>
 
-        <h2 class="mt-6 text-3xl font-bold text-white">Links</h2>
-        <ul class="list-none space-y-2">
-            <li><a href="https://cs.stanford.edu/~knuth/" class="text-blue-400 hover:text-blue-600" target="_blank">Donald E. Knuth Homepage</a></li>
-        </ul>
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-white mb-6">Links</h2>
+                <ul class="space-y-4">
+                    <li>
+                        <a href="https://cs.stanford.edu/~knuth/" class="text-blue-400 hover:text-blue-600 font-semibold">Donald E. Knuth Homepage</a>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="text-center text-gray-400 text-sm mt-12">
+            <p>Site generated with Hakyll</p>
+        </footer>
     </div>
-
-    <footer class="text-center text-gray-400 text-sm mt-10">
-        <p>Site generated with Hakyll</p>
-    </footer>
-
 </body>
 </html>
