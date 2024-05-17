@@ -1,8 +1,8 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
 import           Hakyll
-
+import Text.Pandoc.Options
+import Text.Pandoc.Extensions (githubMarkdownExtensions)
 
 --------------------------------------------------------------------------------
 
@@ -63,12 +63,59 @@ main = hakyll $ do
     --         >>= loadAndApplyTemplate "templates/default.html" defaultContext
     --         >>= relativizeUrls
 
+    -- Custom Pandoc options for GitHub Flavored Markdown
+
+    -- Configure reader options for GFM specifically
+    let readerOptions = defaultHakyllReaderOptions {
+        readerExtensions = Text.Pandoc.Extensions.githubMarkdownExtensions
+    }
+
+    let writerOptions = defaultHakyllWriterOptions {
+        writerExtensions = Text.Pandoc.Extensions.githubMarkdownExtensions
+    }
+
+    -- Custom Pandoc compiler that uses the GFM-specific reader options
+    let customPandocCompiler = pandocCompilerWith readerOptions writerOptions
+
+
     match "posts/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
+        compile $ customPandocCompiler
+            >>= loadAndApplyTemplate "templates/post.html" postCtx
             >>= relativizeUrls
+
+    -- match "posts/index.html" $ do
+    --     route idRoute
+    --     compile $ do
+    --         posts <- recentFirst =<< loadAll "posts/*"
+    --         let indexCtx =
+    --                 listField "posts" postCtx (return posts) `mappend`
+    --                 constField "title" "Posts Archive" <>
+    --                 defaultContext
+
+    --         getResourceBody
+    --             >>= applyAsTemplate indexCtx
+    --             >>= loadAndApplyTemplate "templates/default.html" indexCtx
+    --             >>= relativizeUrls
+
+    match "index.html" $ do
+        route idRoute
+        compile $ do
+            snippet <- loadBody "web-content/snippet.md"
+            posts <- recentFirst =<< loadAll "posts/*"
+            let indexCtx =
+                    listField "posts" postCtx (return posts) `mappend`
+                    constField "title" "Home"                `mappend`
+                    constField "snippet" snippet             `mappend`
+                    defaultContext
+
+            getResourceBody
+                >>= applyAsTemplate indexCtx
+                >>= loadAndApplyTemplate "templates/default.html" indexCtx
+                >>= relativizeUrls
+
+    -- match "templates/*" $ compile templateCompiler
+
 
     -- create ["posts/index.html"] $ do  -- Changed from "archive.html" to "posts/index.html"
     --     route idRoute
@@ -98,29 +145,10 @@ main = hakyll $ do
     --             >>= loadAndApplyTemplate "templates/default.html" archiveCtx
     --             >>= relativizeUrls
 
-
-    match "index.html" $ do
-        route idRoute
-        compile $ do
-            snippet <- loadBody "web-content/snippet.md"
-            posts <- recentFirst =<< loadAll "posts/*"
-            let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Home"                `mappend`
-                    constField "snippet" snippet             `mappend`
-                    defaultContext
-
-            getResourceBody
-                >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
-                >>= relativizeUrls
-
-    -- match "templates/*" $ compile templateCompiler
-
-
 --------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
+    constField "author" "Timothy Williams" `mappend`
     defaultContext
 

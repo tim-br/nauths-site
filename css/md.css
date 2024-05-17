@@ -1,0 +1,110 @@
+/* Set a base font size and line height */
+body {
+  font-family: 'Georgia', serif; /* Choose a highly readable serif font */
+  font-size: 18px; /* Base font size */
+  line-height: 1.6; /* Line height for readability */
+  color: #333; /* Text color for good contrast */
+  background-color: #fff; /* Light background color */
+  margin: 0;
+  padding: 0;
+  padding: 20px;
+}
+
+/* Style headers to be distinguishable and readable */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arial', sans-serif; /* Use a different font for headers */
+  line-height: 1.25; /* Tighter line height for headers */
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.75em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+h5 {
+  font-size: 1.25em;
+}
+
+h6 {
+  font-size: 1em;
+}
+
+/* Paragraphs should have a clear margin to separate them */
+p {
+  margin: 1em 0;
+}
+
+/* Style links to be clearly distinguishable */
+a {
+  color: #0066cc; /* Color for links */
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #004499; /* Darker color for hover state */
+}
+
+/* Lists should have clear spacing and indentation */
+ul, ol {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+/* Blockquotes should stand out */
+blockquote {
+  margin: 1.5em 0;
+  padding: 0.5em 10px;
+  color: #555;
+  border-left: 5px solid #ccc;
+  background: #f9f9f9;
+}
+
+/* Code blocks should have a different background and font */
+pre {
+  background: #f4f4f4;
+  padding: 10px;
+  border: 1px solid #ddd;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  background: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Images should be responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make tables readable */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background: #f4f4f4;
+}

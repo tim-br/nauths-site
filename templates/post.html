@@ -1,8 +1,19 @@
-<div class="info">
-    Posted on $date$
-    $if(author)$
-        by $author$
-    $endif$
-</div>
-
-$body$
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$title$</title>
+    <link rel="stylesheet" href="/css/md.css">
+</head>
+<body class="font-sans bg-gray-900 text-gray-200">
+    <div class="info">
+        Posted on $date$
+        $if(author)$
+            by $author$
+        $endif$
+    </div>
+    
+    $body$
+</body>
+</html>

@@ -32,18 +32,18 @@ npm init -y
 
 Then we shall install a few dependencies:
 
+``` bash
+npm install typescript 
+npm install express --save-dev
+```
+
 Typescript is the language we are using.
 
 Express is used to serve pages.
 
 Express is a dev dependency for now, as we might deploy this using amplify or something similar for static sites. Also, we won't use TypeScript on the backend, to simplify the code and reduce dependencies.
 
-``` bash
-npm install typescript 
-npm install express --save-dev
-```
-
-Create a `server` directory with a JavaScript file:
+Next, we shall create a `server` directory with a JavaScript file:
 
 ``` bash
 mkdir server
@@ -108,7 +108,7 @@ Of course, we will need to initialize the typescript config file:
 npx tsc --init
 ```
 
-And you can replace the contents with this:
+And we can replace the contents with this:
 
 ``` json
 {

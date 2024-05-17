@@ -20,11 +20,15 @@ title: Home
         <h2 class="text-3xl font-bold text-white mb-6">Posts</h2>
         $partial("templates/post-list.html")$
       </section>
-      
+
       <section class="mb-12">
           <h2 class="text-3xl font-bold text-white mb-6">Projects</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <!-- Projects in cards -->
+              <div class="bg-gray-800 p-6 rounded-md shadow-md hover:shadow-lg">
+                <a href="https://github.com/tim-br/simple-ts-framework" class="text-blue-400 hover:text-blue-600 font-semibold">Simple TypeScript Frontend Framework</a>
+                <p class="text-gray-400 mt-2">A simple component based frontend framework entiretly built in TypeScript. The process of building this is described in a blog series that begins here: <a href="/posts/2024-05-17-simple_ts_generics.html" class="text-blue-400 hover:text-blue-600 font-semibold">here</a>.</p>
+              </div>
               <div class="bg-gray-800 p-6 rounded-md shadow-md hover:shadow-lg">
                   <a href="https://github.com/tim-br/hview" class="text-blue-400 hover:text-blue-600 font-semibold">HView</a>
                   <p class="text-gray-400 mt-2">Inspired by LiveView, a Haskell library for dynamic HTML updates via JSON. In πρῶτο-ἄλφα (proto-alpha phase).</p>
