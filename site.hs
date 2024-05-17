@@ -28,15 +28,15 @@ main = hakyll $ do
         compile copyFileCompiler
 
     -- Route and compile HTML files
-    match "web-content/index.html" $ do
-        route idRoute
-        compile $ do
-            snippet <- loadBody "web-content/snippet.md"
-            let indexContext = constField "snippet" snippet `mappend` defaultContext
-            getResourceBody
-                >>= applyAsTemplate indexContext
-                >>= loadAndApplyTemplate "templates/default.html" indexContext
-                >>= relativizeUrls
+    -- match "web-content/index.html" $ do
+    --     route $ constRoute "index.html"
+    --     compile $ do
+    --         snippet <- loadBody "web-content/snippet.md"
+    --         let indexContext = constField "snippet" snippet `mappend` defaultContext
+    --         getResourceBody
+    --             >>= applyAsTemplate indexContext
+    --             >>= loadAndApplyTemplate "templates/default.html" indexContext
+    --             >>= relativizeUrls
     -- Route and compile HTML files
     match "web-content/**/*.html" $ do
         route idRoute
@@ -53,9 +53,9 @@ main = hakyll $ do
     --     route   idRoute
     --     compile copyFileCompiler
 
-    -- match "css/*" $ do
-    --     route   idRoute
-    --     compile compressCssCompiler
+    match "css/*" $ do
+        route   idRoute
+        compile compressCssCompiler
 
     -- match (fromList ["about.rst", "contact.markdown"]) $ do
     --     route   $ setExtension "html"
@@ -63,12 +63,26 @@ main = hakyll $ do
     --         >>= loadAndApplyTemplate "templates/default.html" defaultContext
     --         >>= relativizeUrls
 
-    -- match "posts/*" $ do
-    --     route $ setExtension "html"
-    --     compile $ pandocCompiler
-    --         >>= loadAndApplyTemplate "templates/post.html"    postCtx
-    --         >>= loadAndApplyTemplate "templates/default.html" postCtx
-    --         >>= relativizeUrls
+    match "posts/*" $ do
+        route $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/post.html"    postCtx
+            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= relativizeUrls
+
+    -- create ["posts/index.html"] $ do  -- Changed from "archive.html" to "posts/index.html"
+    --     route idRoute
+    --     compile $ do
+    --         posts <- recentFirst =<< loadAll "posts/*"
+    --         let archiveCtx =
+    --                 listField "posts" postCtx (return posts) `mappend`
+    --                 constField "title" "Archives"            `mappend`
+    --                 defaultContext
+
+    --         makeItem ""
+    --             >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
+    --             >>= loadAndApplyTemplate "templates/default.html" archiveCtx
+    --             >>= relativizeUrls
 
     -- create ["archive.html"] $ do
     --     route idRoute
@@ -85,19 +99,21 @@ main = hakyll $ do
     --             >>= relativizeUrls
 
 
-    -- match "index.html" $ do
-    --     route idRoute
-    --     compile $ do
-    --         posts <- recentFirst =<< loadAll "posts/*"
-    --         let indexCtx =
-    --                 listField "posts" postCtx (return posts) `mappend`
-    --                 constField "title" "Home"                `mappend`
-    --                 defaultContext
+    match "index.html" $ do
+        route idRoute
+        compile $ do
+            snippet <- loadBody "web-content/snippet.md"
+            posts <- recentFirst =<< loadAll "posts/*"
+            let indexCtx =
+                    listField "posts" postCtx (return posts) `mappend`
+                    constField "title" "Home"                `mappend`
+                    constField "snippet" snippet             `mappend`
+                    defaultContext
 
-    --         getResourceBody
-    --             >>= applyAsTemplate indexCtx
-    --             >>= loadAndApplyTemplate "templates/default.html" indexCtx
-    --             >>= relativizeUrls
+            getResourceBody
+                >>= applyAsTemplate indexCtx
+                >>= loadAndApplyTemplate "templates/default.html" indexCtx
+                >>= relativizeUrls
 
     -- match "templates/*" $ compile templateCompiler
 

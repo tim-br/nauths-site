@@ -4,7 +4,7 @@
 DEPLOYMENT_LABEL="app=caddy"
 CONTAINER_NAME="caddy"
 DESTINATION_PATH="/usr/share/caddy/"
-SOURCE_PATH="./_site/web-content"
+SOURCE_PATH="./_site/"
 
 # Check if the source directory exists and is not empty
 if [ ! -d "$SOURCE_PATH" ] || [ -z "$(ls -A $SOURCE_PATH)" ]; then
@@ -27,5 +27,8 @@ if ! kubectl cp ./ $POD_NAME:$DESTINATION_PATH -c $CONTAINER_NAME; then
   exit 1
 fi
 popd
+kubectl exec $POD_NAME -c $CONTAINER_NAME -- ls -la $DESTINATION_PATH
+kubectl exec $POD_NAME -c $CONTAINER_NAME -- grep bg /usr/share/caddy/style.css 
+STYLE=style.css
 
 echo "Files successfully copied to $POD_NAME:$DESTINATION_PATH"
