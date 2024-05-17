@@ -1,5 +1,5 @@
 ---
-title: Building A Frontend Component Framework With TypeScript: Part ἄλφα - Setting Up an NPM Project
+title: "Building A Frontend Component Framework With TypeScript: Part ἄλφα - Setting Up an NPM Project"
 ---
 
 ### Building A Frontend Component Framework With TypeScript: Part ἄλφα - Setting up an NPM project
