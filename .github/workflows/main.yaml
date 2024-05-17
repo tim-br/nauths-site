@@ -60,8 +60,8 @@ jobs:
       - name: Upload web-content directory
         uses: actions/upload-artifact@v3
         with:
-          name: web-content
-          path: ./_site/web-content
+          name: _site
+          path: ./_site/
 
   deploy:
     needs: build
@@ -70,11 +70,11 @@ jobs:
 
       - uses: actions/checkout@v3
 
-      - name: Download web-content directory
+      - name: Download _site directory
         uses: actions/download-artifact@v3
         with:
-          name: web-content
-          path: ./_site/web-content
+          name: _site
+          path: ./_site/
 
       - name: Install kubectl
         uses: azure/setup-kubectl@v2.0
