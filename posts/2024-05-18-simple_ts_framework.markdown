@@ -24,13 +24,15 @@ export function printRendered(item: Renderable): void {
 
 ### Defining a few classes that implement Renderable
 
-Back in `app.js` we can now implement renderable in a few classes that we can define:
+Back in `app.js` we can now implement renderable in a few classes that we can define.
 
 First, we need to import `Renderer` and `printRendered` at the top of `app.ts` in order to use them in the file.
 
 ``` typescript
 import { Renderable, printRendered } from './lib'
 ```
+
+Now we can define a few classes that implement this the `Renderable` interface.
 
 ``` typescript
 class Person implements Renderable {
