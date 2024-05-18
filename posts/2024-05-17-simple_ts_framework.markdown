@@ -6,6 +6,8 @@ title: "Building A Frontend Component Framework With TypeScript: Part ἄλφα 
 
 In this blog series, we will be building a simple component based frontend framework entirely in TypeScript. This series will guide you through framework design, focusing on modular and reusable components.
 
+**Important Security Notice**: Please be aware that the code provided here is intended for demonstration purposes only and represents a basic implementation of a modern web framework. As such, it may be susceptible to common security vulnerabilities, including cross-site scripting (XSS) attacks. I strongly recommend not running this code in any production environment.
+
 **Why TypeScript?**
 
 - **Strong Typing**: TypeScript's strong typing system helps catch errors early in the development process, making it ideal for components intended for wide reuse in various parts of an application or even across projects.
