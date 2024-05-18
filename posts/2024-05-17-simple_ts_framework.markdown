@@ -13,8 +13,6 @@ In this blog series, we will be building a simple component based frontend frame
 - **Strong Typing**: TypeScript's strong typing system helps catch errors early in the development process, making it ideal for components intended for wide reuse in various parts of an application or even across projects.
 - **Enhanced Code Quality and Readability**: The type annotations and compile-time checks lead to more readable and maintainable code, crucial for components that need to be easily understood and modified by different developers over time.
 
-We will not use TypeScript on the backend since the server setup is straightforward, and the framework is designed to be backend-agnostic, enabling deployment on any server environment. A typical production deployment might involve platforms like Netlify, which are geared towards hosting static sites and require no server-side processing.
-
 ### Prerequisites
 
 The reader will need to have `node` and `npm` installed in order to follow along. View https://nodejs.org/en for more info. I'm using `v20.12.2`.
@@ -63,7 +61,7 @@ Add this to index.html:
 </html>
 ```
 
-Create a `src` directory:
+Create a `src` directory, and add `app.ts` to the directory:
 
 ``` bash
 mkdir src
