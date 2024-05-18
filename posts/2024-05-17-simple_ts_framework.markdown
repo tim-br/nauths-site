@@ -33,43 +33,15 @@ npm init -y
 Then we shall install a few dependencies:
 
 ``` bash
-npm install typescript 
-npm install express --save-dev
+npm install typescript parcel-bundler
 ```
 
-Typescript is the language we are using.
+Typescript is the language we are using and we're using parcel to bundle the typescript appropriately.
 
-Express is used to serve pages.
-
-Express is a dev dependency for now, as we might deploy this using amplify or something similar for static sites. Also, we won't use TypeScript on the backend, to simplify the code and reduce dependencies.
-
-Next, we shall create a `server` directory with a JavaScript file:
+Create an html file:
 
 ``` bash
-mkdir server
-touch server/index.js
-```
-
-And add this to `index.js`
-
-``` javascript
-const express = require('express')
-
-const app = express()
-const port = 3000
-
-app.use(express.static('public'))
-
-app.listen(port, function() {
-  console.log('Server running at http://localhost:' + port)
-})
-```
-
-Create a `public` directory with the HTML and TypeScript file:
-
-``` bash
-mkdir public
-touch public/index.html
+touch index.html
 ```
 
 Add this to index.html:
@@ -80,11 +52,11 @@ Add this to index.html:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TypeScript Generics</title>
+  <title>Simple Typescript Framework</title>
 </head>
 <body>
   <h1>Hello, TypeScript!</h1>
-  <script src="lib.js"></script>
+  <script src="src/app.ts"></script>
 </body>
 </html>
 ```
@@ -93,55 +65,29 @@ Create a `src` directory:
 
 ``` bash
 mkdir src
-touch src/lib.ts
+touch src/app.ts
 ```
 
-And add this to `lib.ts`:
+And add this to `app.ts`:
 
 ``` javascript
 document.body.innerHTML += "<p>Added by TypeScript!</p>"
-```
-
-Of course, we will need to initialize the typescript config file:
-
-``` bash
-npx tsc --init
-```
-
-And we can replace the contents with this:
-
-``` json
-{
-  "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "outDir": "./public",
-    "rootDir": "./src",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true
-  },
-  "include": ["src/lib.ts"],
-  "exclude": ["node_modules", "dist"]
-}
 ```
 
 Add these scripts to `package.json`:
 
 ``` json
 "scripts": {
-  "build": "tsc -p tsconfig.json",
-  "watch": "tsc -p tsconfig.json --watch",
-  "start": "node server/index.js"  
+    "start": "parcel index.html"
 }
 ```
 
-To test everything is working, run `npm run start` in one bash tab, and `npm run watch` in another bash tab.
+To test everything is working, run `npm run start`.
 
-Then you can view the app at http://localhost:3000 and ensure that you view the sentence "Added by TypeScript!".
+Then you can view the app at http://localhost:1234 and ensure that you view the sentence "Added by TypeScript!".
 
-Change `lib.ts` to something else, for example `document.body.innerHTML += "<p>Pirates!</p>"` and refresh to browser to see that the changes have taken effect.
+Change `app.ts` to something else, for example `document.body.innerHTML += "<p>Pirates!</p>"` see that the changes have taken effect (refreshing the browser is not necessary).
 
 If it's not working, review the previous steps to get it working before proceeding.
 
-Finally, if you are really stuck, please review the repo for hints: https://github.com/tim-br/simple-ts-framework/tree/setting-up-a-ts-project.
+Finally, if you are really stuck, please review the repo at the `setting-up-a-ts-project` branch for hints: https://github.com/tim-br/simple-ts-framework/tree/setting-up-a-ts-project.
