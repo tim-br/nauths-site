@@ -2,7 +2,7 @@
 title: "Building A Frontend Component Framework With TypeScript: Part I - Setting Up an NPM Project"
 ---
 
-### Building A Frontend Component Framework With TypeScript: Part II - Setting up an NPM project
+### Building A Frontend Component Framework With TypeScript: Part I - Setting up an NPM project
 
 In this blog series, we will be building a simple component based frontend framework entirely in TypeScript. This series will guide you through framework design, focusing on modular and reusable components.
 
