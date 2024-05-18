@@ -1,8 +1,8 @@
 ---
-title: "Building A Frontend Component Framework With TypeScript: Part βῆτα - Rendering Simple Components"
+title: "Building A Frontend Component Framework With TypeScript: Part II - Rendering Simple Components"
 ---
 
-### Building A Frontend Component Framework With TypeScript: Part βῆτα - Rendering Simple Components
+### Building A Frontend Component Framework With TypeScript: Part II - Rendering Simple Components
 
 In this part of the blog series, we will begin defining a few types and attempting to render them in the browser.
 
