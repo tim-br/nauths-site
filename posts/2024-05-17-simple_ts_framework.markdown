@@ -138,6 +138,8 @@ Add these scripts to `package.json`:
 
 To test everything is working, run `npm run start` in one bash tab, and `npm run watch` in another bash tab.
 
+Then you can view the app at http://localhost:3000 and ensure that you view the sentence "Added by TypeScript!".
+
 Change `lib.ts` to something else, for example `document.body.innerHTML += "<p>Pirates!</p>"` and refresh to browser to see that the changes have taken effect.
 
 If it's not working, review the previous steps to get it working before proceeding.
