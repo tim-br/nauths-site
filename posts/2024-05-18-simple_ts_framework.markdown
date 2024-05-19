@@ -6,7 +6,9 @@ title: "Building A Frontend Component Framework With TypeScript: Part II - Rende
 
 In this part of the blog series, we will begin defining a few types and attempting to render them in the browser.
 
-If you skipped the previous posts, you can follow along from the repo at the `setting-up-a-ts-project` branch: https://github.com/tim-br/simple-ts-framework/tree/setting-up-a-ts-project.
+If you skipped the previous posts, you can view the previous post at [Setting up an NPM project](https://nauths.io/posts/2024-05-17-simple_ts_framework.html).
+
+You can follow along from the repo at the `setting-up-a-ts-project` branch: https://github.com/tim-br/simple-ts-framework/tree/setting-up-a-ts-project.
 
 ### An interface
 
