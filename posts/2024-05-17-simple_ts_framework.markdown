@@ -91,3 +91,5 @@ Change `app.ts` to something else, for example `document.body.innerHTML += "<p>P
 If it's not working, review the previous steps to get it working before proceeding.
 
 Finally, if you are really stuck, please review the repo at the `setting-up-a-ts-project` branch for hints: https://github.com/tim-br/simple-ts-framework/tree/setting-up-a-ts-project.
+
+Next: [Rendering Simple Components](https://nauths.io/posts/2024-05-18-simple_ts_framework.html)!
